@@ -37,6 +37,7 @@ public class Indexer {
 
     void indexData() throws IOException {
         for (CSVRecord record : parser) {
+            System.out.println(HtmlUtilities.convertToPlainText(record.get("Body")));
             index.addDocument(provideDocument(record));
             index.commit();
         }
