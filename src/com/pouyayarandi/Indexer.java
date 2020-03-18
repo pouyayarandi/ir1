@@ -8,7 +8,7 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.store.Directory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,16 +25,17 @@ public class Indexer {
     private IndexWriter index;
     private CSVParser parser;
 
-    Indexer() throws IOException {
+    Indexer(Directory directory) throws IOException {
         Analyzer analyzer = new StandardAnalyzer();
         FileInputStream file = new FileInputStream(fileAddress);
         InputStreamReader input = new InputStreamReader(file);
 
-        index = new IndexWriter(new RAMDirectory(), new IndexWriterConfig(analyzer));
+        index = new IndexWriter(directory, new IndexWriterConfig(analyzer));
         parser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(input);
     }
 
     void indexData() throws IOException {
+        index.commit();
         for (CSVRecord record : parser) {
             index.addDocument(provideDocument(record));
             index.commit();
