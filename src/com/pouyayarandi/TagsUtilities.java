@@ -17,4 +17,11 @@ public class TagsUtilities {
         }
         return tags;
     }
+
+    static boolean isBodyContainsAnyTag(String body, List<String> tags) {
+        for (String tag: tags) {
+            if (body.contains(tag)) return true;
+        }
+        return false;
+    }
 }

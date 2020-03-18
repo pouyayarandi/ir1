@@ -5,9 +5,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.RAMDirectory;
@@ -15,6 +13,7 @@ import org.apache.lucene.store.RAMDirectory;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 /**
  * Created by Pouya on 3/17/20.
@@ -37,17 +36,22 @@ public class Indexer {
 
     void indexData() throws IOException {
         for (CSVRecord record : parser) {
-            System.out.println(HtmlUtilities.convertToPlainText(record.get("Body")));
             index.addDocument(provideDocument(record));
             index.commit();
         }
         index.close();
-        System.out.println("index finished");
     }
 
     private Document provideDocument(CSVRecord record) {
+        String body = HtmlUtilities.convertToPlainText(record.get("Body")).toLowerCase();
+        List<String> tags = TagsUtilities.parseTags(record.get("Tags"));
+        boolean NoTagIncluded = TagsUtilities.isBodyContainsAnyTag(body, tags);
         Document document = new Document();
-        document.add(new TextField("Body", record.get("Body"), Field.Store.YES));
+        document.add(new StringField("Id", record.get("Id"), Field.Store.YES));
+        document.add(new TextField("Title", record.get("Title"), Field.Store.YES));
+        document.add(new TextField("Body", body, Field.Store.YES));
+        document.add(new TextField("DisplayName", record.get("DisplayName"), Field.Store.YES));
+        document.add(new IntPoint("NoTagIncluded", NoTagIncluded ? 1 : 0));
         return document;
     }
 }

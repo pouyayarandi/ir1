@@ -33,12 +33,10 @@ public class HtmlUtilities {
         charEntityLookup.put("&amp;", "&");
         charEntityLookup.put("&quot;", "\"");
         charEntityLookup.put("&apos;", "'");
-
         String result = input;
         for (Map.Entry<String, String> changeCase: charEntityLookup.entrySet()) {
             result = result.replaceAll(changeCase.getKey(), changeCase.getValue());
         }
-
         return result;
     }
 }
