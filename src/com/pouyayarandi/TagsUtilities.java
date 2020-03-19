@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Pouya on 3/18/20.
  */
 public class TagsUtilities {
-    static List<String> parseTags(String input) {
+    static String[] parseTags(String input) {
         List<String> tags = new ArrayList<>();
         String currentTag = "";
         for (Character c: input.toCharArray()) {
@@ -15,7 +15,7 @@ public class TagsUtilities {
             else if (c.equals('>')) tags.add(currentTag);
             else currentTag += c;
         }
-        return tags;
+        return tags.toArray(new String[tags.size()]);
     }
 
     static boolean isBodyContainsAnyTag(String body, List<String> tags) {
