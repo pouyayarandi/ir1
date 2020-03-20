@@ -1,9 +1,9 @@
 package com.pouyayarandi;
 
+import com.sun.istack.internal.Nullable;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.memory.MemoryIndex;
-import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.Query;
 
 import java.io.IOException;
@@ -16,21 +16,20 @@ import java.util.List;
  */
 public class SearchManager {
 
-    private Analyzer analyzer;
+    private static Analyzer analyzer = new StandardAnalyzer();
 
     int limit = 10;
     float threshold = 0.0f;
+    Post[] posts;
 
-    SearchManager() {
-        analyzer = new StandardAnalyzer();
+    SearchManager(@Nullable Post[] posts) {
+        this.posts = posts;
     }
 
-    IndexRecord[] searchPosts(Post[] posts, String field, String queryTerm) throws ParseException, IOException {
+    IndexRecord[] searchPosts(Query query) throws IOException {
         List<IndexRecord> indexRecords = new ArrayList<>();
 
         for (Post post: posts) {
-            String[] queryTokens = queryTerm.split(" ");
-            Query query = QueryManager.makeMustQuery(field, queryTokens);
             float score = post.getMemoryIndex().search(query);
             if (score > threshold)
                 indexRecords.add(new IndexRecord(post, score));
@@ -42,11 +41,10 @@ public class SearchManager {
         return result;
     }
 
-    boolean isTagsIncludedInBody(String body, String[] tags) {
+    static float tagsIncludedInBody(String body, String[] tags) {
         MemoryIndex memoryIndex = new MemoryIndex();
-        memoryIndex.addField("BodyTemp", body, analyzer);
-        Query query = QueryManager.makeMustNotQuery("BodyTemp", tags);
-        float score = memoryIndex.search(query);
-        return score != 0.0f;
+        memoryIndex.addField("BodyTag", body, analyzer);
+        Query query = QueryManager.makeMustNotQuery("BodyTag", tags);
+        return memoryIndex.search(query);
     }
 }

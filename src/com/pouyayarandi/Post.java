@@ -3,10 +3,7 @@ package com.pouyayarandi;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.IntPoint;
-import org.apache.lucene.document.StringField;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.memory.MemoryIndex;
 
 /**
@@ -18,7 +15,7 @@ public class Post {
     private String body;
     private String[] tags;
     private User user;
-    private boolean isTagIncluded;
+    private float tagsScore;
 
     private Analyzer analyzer = new StandardAnalyzer();
 
@@ -29,9 +26,13 @@ public class Post {
         tags = TagsUtilities.parseTags(record.get("Tags"));
         user = new User(record);
 
-        SearchManager searchManager = new SearchManager();
-        if (tags.length == 0) isTagIncluded = false;
-        else isTagIncluded = searchManager.isTagsIncludedInBody(body, tags);
+        if (tags.length == 0) {
+            tagsScore = 0.0f;
+        }
+        else {
+            tagsScore = SearchManager.tagsIncludedInBody(body, tags);
+            System.out.println(tagsScore);
+        }
     }
 
     public String getId() {
@@ -74,17 +75,13 @@ public class Post {
         this.tags = tags;
     }
 
-    private boolean isTagIncluded() {
-        return isTagIncluded;
-    }
-
     public MemoryIndex getMemoryIndex() {
         MemoryIndex memoryIndex = new MemoryIndex();
         memoryIndex.addField(new StringField("Id", id, Field.Store.YES), analyzer);
         memoryIndex.addField(new TextField("Title", title, Field.Store.YES), analyzer);
         memoryIndex.addField(new TextField("Body", body, Field.Store.YES), analyzer);
         memoryIndex.addField(new TextField("DisplayName", user.getDisplayName(), Field.Store.YES), analyzer);
-        memoryIndex.addField(new IntPoint("TagIncluded", isTagIncluded() ? 1 : 0), analyzer);
+        memoryIndex.addField(new FloatPoint("TagsScore", tagsScore), analyzer);
         return memoryIndex;
     }
 }
