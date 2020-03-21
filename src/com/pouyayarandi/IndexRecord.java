@@ -14,6 +14,6 @@ public class IndexRecord implements Comparable<IndexRecord> {
 
     @Override
     public int compareTo(IndexRecord o) {
-        return (int)(score - o.score);
+        return (int)((o.score - score) * 10_000_000);
     }
 }

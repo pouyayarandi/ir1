@@ -14,17 +14,19 @@ public class Main {
             System.out.println("Index finished");
             SearchManager searchManager = new SearchManager(indexer.getPosts());
 
-            Query query = QueryManager.makeExactQuery("TagsScore", 0.0f);
-            //Query query = QueryManager.makeMustQuery("Body", "python");
+            //Query query = QueryManager.makeExactQuery("TagsScore", 0.0f);
+            Query query = QueryManager.makeMustQuery("Body", "python");
+            //Query query = QueryManager.makeMustQuery("Id", "54994793");
+
             IndexRecord[] indexRecords = searchManager.searchPosts(query);
             System.out.println(String.format("%d result(s) were found for: %s", indexRecords.length, "--"));
-            /*
+
             for (IndexRecord record: indexRecords) {
                 System.out.println(record.post.getTitle());
                 System.out.println(record.post.getUser().getDisplayName());
                 System.out.println(record.score);
-                System.out.println("====================");
-            }*/
+                System.out.println("============================================================");
+            }
         } catch (IOException exception) {
             System.out.println(exception.getLocalizedMessage());
         }

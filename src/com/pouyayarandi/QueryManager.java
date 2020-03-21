@@ -40,5 +40,4 @@ public class QueryManager {
     public static Query makeExactQuery(String field, float value) {
         return FloatPoint.newExactQuery(field, value);
     }
-
 }

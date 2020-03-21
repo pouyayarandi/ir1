@@ -25,14 +25,7 @@ public class Post {
         body = HtmlUtilities.convertToPlainText(record.get("Body"));
         tags = TagsUtilities.parseTags(record.get("Tags"));
         user = new User(record);
-
-        if (tags.length == 0) {
-            tagsScore = 0.0f;
-        }
-        else {
-            tagsScore = SearchManager.tagsIncludedInBody(body, tags);
-            System.out.println(tagsScore);
-        }
+        tagsScore = tags.length == 0 ? 1.0f : SearchManager.tagsScoreInBody(body, tags);
     }
 
     public String getId() {

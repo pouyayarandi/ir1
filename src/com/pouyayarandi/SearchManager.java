@@ -3,10 +3,13 @@ package com.pouyayarandi;
 import com.sun.istack.internal.Nullable;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.TextField;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.index.memory.MemoryIndex;
 import org.apache.lucene.search.Query;
+import org.apache.lucene.search.TermQuery;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,25 +29,25 @@ public class SearchManager {
         this.posts = posts;
     }
 
-    IndexRecord[] searchPosts(Query query) throws IOException {
+    IndexRecord[] searchPosts(Query query) {
         List<IndexRecord> indexRecords = new ArrayList<>();
-
         for (Post post: posts) {
             float score = post.getMemoryIndex().search(query);
-            if (score > threshold)
-                indexRecords.add(new IndexRecord(post, score));
+            if (score > threshold) indexRecords.add(new IndexRecord(post, score));
         }
-
         IndexRecord[] result = indexRecords.toArray(new IndexRecord[indexRecords.size()]);
         Arrays.sort(result);
-
-        return result;
+        return Arrays.copyOfRange(result, 0, Math.min(limit, result.length));
     }
 
-    static float tagsIncludedInBody(String body, String[] tags) {
+    static float tagsScoreInBody(String body, String[] tags) {
         MemoryIndex memoryIndex = new MemoryIndex();
-        memoryIndex.addField("BodyTag", body, analyzer);
-        Query query = QueryManager.makeMustNotQuery("BodyTag", tags);
-        return memoryIndex.search(query);
+        memoryIndex.addField(new TextField("body", body, Field.Store.NO), analyzer);
+        float finalScore = 0.0f;
+        for (String tag: tags) {
+            float score = memoryIndex.search(new TermQuery(new Term("body", tag)));
+            if (score > finalScore) finalScore = score;
+        }
+        return finalScore;
     }
 }
