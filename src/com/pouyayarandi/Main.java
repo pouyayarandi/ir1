@@ -14,9 +14,9 @@ public class Main {
             System.out.println("Index finished");
             SearchManager searchManager = new SearchManager(indexer.getPosts());
 
-            //Query query = QueryManager.makeExactQuery("TagsScore", 0.0f);
-            Query query = QueryManager.makeMustQuery("Body", "python");
-            //Query query = QueryManager.makeMustQuery("Id", "54994793");
+            Query query = QueryManager.makeExactQuery("TagsScore", 0.0f);
+            //Query query = QueryManager.makeMustQuery("Body", "ios");
+            //Query query = QueryManager.makeMustQuery("Id", "57842756");
 
             IndexRecord[] indexRecords = searchManager.searchPosts(query);
             System.out.println(String.format("%d result(s) were found for: %s", indexRecords.length, "--"));

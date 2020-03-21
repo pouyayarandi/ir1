@@ -20,7 +20,7 @@ public class Post {
     private Analyzer analyzer = new StandardAnalyzer();
 
     public Post(CSVRecord record) {
-        id = record.get("Id");
+        id = record.get(0);
         title = record.get("Title");
         body = HtmlUtilities.convertToPlainText(record.get("Body"));
         tags = TagsUtilities.parseTags(record.get("Tags"));

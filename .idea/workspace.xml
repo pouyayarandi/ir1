@@ -4,13 +4,10 @@
     <list default="true" id="f5b3f7de-3486-4cfa-a690-e4dcf71d657b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IR-Beheshti-1/com/pouyayarandi/Main.class" afterPath="$PROJECT_DIR$/out/production/IR-Beheshti-1/com/pouyayarandi/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IR-Beheshti-1/com/pouyayarandi/Post.class" afterPath="$PROJECT_DIR$/out/production/IR-Beheshti-1/com/pouyayarandi/Post.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IR-Beheshti-1/com/pouyayarandi/SearchManager.class" afterPath="$PROJECT_DIR$/out/production/IR-Beheshti-1/com/pouyayarandi/SearchManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pouyayarandi/IndexRecord.java" afterPath="$PROJECT_DIR$/src/com/pouyayarandi/IndexRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QueryResults.csv" afterPath="$PROJECT_DIR$/QueryResults.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pouyayarandi/Main.java" afterPath="$PROJECT_DIR$/src/com/pouyayarandi/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pouyayarandi/Post.java" afterPath="$PROJECT_DIR$/src/com/pouyayarandi/Post.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pouyayarandi/QueryManager.java" afterPath="$PROJECT_DIR$/src/com/pouyayarandi/QueryManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pouyayarandi/SearchManager.java" afterPath="$PROJECT_DIR$/src/com/pouyayarandi/SearchManager.java" />
     </list>
     <ignored path="IR-Beheshti-1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+            <state vertical-scroll-proportion="-0.3816794">
+              <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/SearchManager.java">
+      <file leaf-file-name="Post.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Post.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76863754">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,11 +82,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Post.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Post.java">
+      <file leaf-file-name="QueryResults.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QueryResults.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/SearchManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,10 +131,10 @@
         <option value="$PROJECT_DIR$/src/com/pouyayarandi/TagsUtilities.java" />
         <option value="$PROJECT_DIR$/QueryResults.csv" />
         <option value="$PROJECT_DIR$/src/com/pouyayarandi/QueryManager.java" />
-        <option value="$PROJECT_DIR$/src/com/pouyayarandi/Post.java" />
-        <option value="$PROJECT_DIR$/src/com/pouyayarandi/Main.java" />
         <option value="$PROJECT_DIR$/src/com/pouyayarandi/IndexRecord.java" />
         <option value="$PROJECT_DIR$/src/com/pouyayarandi/SearchManager.java" />
+        <option value="$PROJECT_DIR$/src/com/pouyayarandi/Post.java" />
+        <option value="$PROJECT_DIR$/src/com/pouyayarandi/Main.java" />
       </list>
     </option>
   </component>
@@ -660,15 +667,15 @@
       <workItem from="1584545082965" duration="11070000" />
       <workItem from="1584606275865" duration="7883000" />
       <workItem from="1584636187771" duration="14444000" />
-      <workItem from="1584779117766" duration="1486000" />
+      <workItem from="1584779117766" duration="3645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44630000" />
+    <option name="totallyTimeSpent" value="46789000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -678,7 +685,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4287671" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42328766" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -998,34 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QueryResults.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.020565553">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="71" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/IndexRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1039,8 +1018,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/SearchManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76863754">
+        <state vertical-scroll-proportion="0.0">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QueryResults.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/pouyayarandi/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3816794">
+          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
