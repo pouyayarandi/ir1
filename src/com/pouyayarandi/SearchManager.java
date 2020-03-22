@@ -52,11 +52,15 @@ public class SearchManager {
     }
 
     static float tagsScoreInBody(String body, String[] tags) {
+
+        for (String tag: tags)
+            if (body.toLowerCase().contains(tag.toLowerCase())) return 1.0f;
+
         MemoryIndex memoryIndex = new MemoryIndex();
         memoryIndex.addField(new TextField("body", body, Field.Store.NO), analyzer);
         float finalScore = 0.0f;
         for (String tag: tags) {
-            float score = memoryIndex.search(new TermQuery(new Term("body", tag)));
+            float score = memoryIndex.search(new TermQuery(new Term("body", tag.toLowerCase())));
             if (score > finalScore) finalScore = score;
         }
         return finalScore;
