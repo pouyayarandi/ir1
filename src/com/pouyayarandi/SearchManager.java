@@ -23,13 +23,16 @@ public class SearchManager {
 
     int limit = 10;
     float threshold = 0.0f;
-    Post[] posts;
 
-    SearchManager(@Nullable Post[] posts) {
-        this.posts = posts;
+    Question[] questions;
+    Answer[] answers;
+
+    SearchManager(@Nullable Question[] questions, @Nullable Answer[] answers) {
+        this.questions = questions;
+        this.answers = answers;
     }
 
-    IndexRecord[] searchPosts(Query query) {
+    private IndexRecord[] searchPosts(Post[] posts, Query query) {
         List<IndexRecord> indexRecords = new ArrayList<>();
         for (Post post: posts) {
             float score = post.getMemoryIndex().search(query);
@@ -38,6 +41,14 @@ public class SearchManager {
         IndexRecord[] result = indexRecords.toArray(new IndexRecord[indexRecords.size()]);
         Arrays.sort(result);
         return Arrays.copyOfRange(result, 0, Math.min(limit, result.length));
+    }
+
+    IndexRecord[] searchQuestions(Query query) {
+        return searchPosts(questions, query);
+    }
+
+    IndexRecord[] searchAnswers(Query query) {
+        return searchPosts(answers, query);
     }
 
     static float tagsScoreInBody(String body, String[] tags) {

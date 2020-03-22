@@ -7,6 +7,7 @@ import org.apache.lucene.document.*;
 import org.apache.lucene.index.memory.MemoryIndex;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -25,7 +26,7 @@ public class Post {
         body = HtmlUtilities.convertToPlainText(record.get("Body"));
         user = new User(record);
         try {
-            creationDate = DateTools.stringToDate(record.get("CreationDate"));
+            creationDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(record.get("CreationDate"));
         } catch (ParseException e) {
             creationDate = null;
         }
