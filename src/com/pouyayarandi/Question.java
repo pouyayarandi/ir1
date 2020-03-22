@@ -37,4 +37,11 @@ public class Question extends Post {
         memoryIndex.addField(new FloatPoint("TagsScore", tagsScore), analyzer);
         return memoryIndex;
     }
+
+    @Override
+    public void printObject() {
+        System.out.println(String.format("TITLE  %s", title));
+        super.printObject();
+        System.out.println(String.format("TAG    %s", String.join(", ", tags)));
+    }
 }

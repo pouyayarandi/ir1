@@ -56,4 +56,13 @@ public class Post {
         memoryIndex.addField(new LongPoint("CreationDate", getCreationTimestamp()), analyzer);
         return memoryIndex;
     }
+
+    public void printObject() {
+        System.out.println(String.format("ID     %s", id));
+        System.out.println(String.format("DATE   %s", creationDate.toString()));
+        System.out.println(String.format("BODY   %s%s",
+                body.substring(0, Math.min(body.length(), 100)).replace("\n",""),
+                body.length() > 100 ? "..." : ""));
+        System.out.println(String.format("USER   %s", user.getDisplayName()));
+    }
 }

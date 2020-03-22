@@ -21,7 +21,7 @@ public class SearchManager {
 
     private static Analyzer analyzer = new StandardAnalyzer();
 
-    int limit = 10;
+    int limit = -1;
     float threshold = 0.0f;
 
     Question[] questions;
@@ -40,7 +40,7 @@ public class SearchManager {
         }
         IndexRecord[] result = indexRecords.toArray(new IndexRecord[indexRecords.size()]);
         Arrays.sort(result);
-        return Arrays.copyOfRange(result, 0, Math.min(limit, result.length));
+        return limit > 0 ? Arrays.copyOfRange(result, 0, Math.min(limit, result.length)) : result;
     }
 
     IndexRecord[] searchQuestions(Query query) {

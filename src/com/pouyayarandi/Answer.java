@@ -35,4 +35,10 @@ public class Answer extends Post {
         memoryIndex.addField(new StringField("ParentId", parentPostId, Field.Store.YES), analyzer);
         return memoryIndex;
     }
+
+    @Override
+    public void printObject() {
+        super.printObject();
+        System.out.println(String.format("SCORE  %d", score));
+    }
 }
