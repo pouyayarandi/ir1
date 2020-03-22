@@ -18,22 +18,34 @@ public class IndexManager {
     String questionsFileAddress = "QueryResults-Questions.csv";
     String answersFileAddress = "QueryResults-Answers.csv";
 
-    private CSVParser parser;
-    private List<Post> posts = new ArrayList<>();
+    private CSVParser questionParser;
+    private CSVParser answerParser;
+    private List<Question> questions = new ArrayList<>();
+    private List<Answer> answers = new ArrayList<>();
 
     IndexManager() throws IOException {
-        FileInputStream file = new FileInputStream(questionsFileAddress);
-        InputStreamReader input = new InputStreamReader(file);
-        parser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(input);
+        FileInputStream questionFile = new FileInputStream(questionsFileAddress);
+        InputStreamReader questionInput = new InputStreamReader(questionFile);
+        questionParser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(questionInput);
+
+        FileInputStream answerFile = new FileInputStream(answersFileAddress);
+        InputStreamReader answerInput = new InputStreamReader(answerFile);
+        answerParser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(answerInput);
     }
 
-    Post[] getPosts() {
-        return posts.toArray(new Post[posts.size()]);
+    Question[] getQuestions() {
+        return questions.toArray(new Question[questions.size()]);
+    }
+
+    Answer[] getAnswers() {
+        return answers.toArray(new Answer[answers.size()]);
     }
 
     void indexData() throws IOException {
-        for (CSVRecord record : parser) {
-            posts.add(new Post(record));
-        }
+        for (CSVRecord record : questionParser)
+            questions.add(new Question(record));
+
+        for (CSVRecord record : answerParser)
+            answers.add(new Answer(record));
     }
 }

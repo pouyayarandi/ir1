@@ -17,11 +17,4 @@ public class TagsUtilities {
         }
         return tags.toArray(new String[tags.size()]);
     }
-
-    static boolean isBodyContainsAnyTag(String body, List<String> tags) {
-        for (String tag: tags) {
-            if (body.contains(tag)) return true;
-        }
-        return false;
-    }
 }

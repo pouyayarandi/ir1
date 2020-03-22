@@ -12,7 +12,7 @@ public class Main {
             System.out.println("Waiting for index (It may take a while) ...");
             indexManager.indexData();
             System.out.println("Index finished");
-            SearchManager searchManager = new SearchManager(indexManager.getPosts());
+            SearchManager searchManager = new SearchManager(indexManager.getQuestions());
 
             Query query = QueryManager.makeExactQuery("TagsScore", 0.0f);
             //Query query = QueryManager.makeMustQuery("Body", "ios");
@@ -22,8 +22,9 @@ public class Main {
             System.out.println(String.format("%d result(s) were found for: %s", indexRecords.length, "--"));
 
             for (IndexRecord record: indexRecords) {
-                System.out.println(record.post.getTitle());
-                System.out.println(record.post.getUser().getDisplayName());
+                Question question = (Question)(record.post);
+                System.out.println(question.getTitle());
+                System.out.println(question.getUser().getDisplayName());
                 System.out.println(record.score);
                 System.out.println("============================================================");
             }
