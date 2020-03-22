@@ -8,11 +8,11 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Indexer indexer = new Indexer();
+            IndexManager indexManager = new IndexManager();
             System.out.println("Waiting for index (It may take a while) ...");
-            indexer.indexData();
+            indexManager.indexData();
             System.out.println("Index finished");
-            SearchManager searchManager = new SearchManager(indexer.getPosts());
+            SearchManager searchManager = new SearchManager(indexManager.getPosts());
 
             Query query = QueryManager.makeExactQuery("TagsScore", 0.0f);
             //Query query = QueryManager.makeMustQuery("Body", "ios");

@@ -13,15 +13,16 @@ import java.util.List;
 /**
  * Created by Pouya on 3/17/20.
  */
-public class Indexer {
+public class IndexManager {
 
-    String fileAddress = "QueryResults.csv";
+    String questionsFileAddress = "QueryResults-Questions.csv";
+    String answersFileAddress = "QueryResults-Answers.csv";
 
     private CSVParser parser;
     private List<Post> posts = new ArrayList<>();
 
-    Indexer() throws IOException {
-        FileInputStream file = new FileInputStream(fileAddress);
+    IndexManager() throws IOException {
+        FileInputStream file = new FileInputStream(questionsFileAddress);
         InputStreamReader input = new InputStreamReader(file);
         parser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(input);
     }
