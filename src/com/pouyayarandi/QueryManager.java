@@ -54,10 +54,6 @@ public class QueryManager {
                 upperValue == null ? Long.MAX_VALUE : upperValue);
     }
 
-    public static Query makeExactQuery(String field, int value) {
-        return IntPoint.newExactQuery(field, value);
-    }
-
     public static Query makeExactQuery(String field, float value) {
         return FloatPoint.newExactQuery(field, value);
     }

@@ -18,16 +18,16 @@ public class QueryViewModel {
 
     static QueryViewModel searchBodyWithQuery(String query) {
         String[] queryTokens = query.split(" ");
-        return new QueryViewModel(QueryManager.makeMustQuery("Body", queryTokens), query);
+        return new QueryViewModel(QueryManager.makeMustQuery("Body", queryTokens), "'"+query+"'");
     }
 
     static QueryViewModel searchId(String id) {
         String[] terms = {id};
-        return new QueryViewModel(QueryManager.makeShouldQuery("Id", terms), String.format("Post with id %s", id));
+        return new QueryViewModel(QueryManager.makeShouldQuery("Id", terms), String.format("post with id %s", id));
     }
 
     static QueryViewModel searchPostsWithNotRelatedTags() {
-        return new QueryViewModel(QueryManager.makeExactQuery("TagsScore", 0.0f), "Posts with no related tags");
+        return new QueryViewModel(QueryManager.makeExactQuery("TagsScore", 0.0f), "posts with no related tags");
     }
 
     static QueryViewModel searchParentIdAndScore(String parentId, int score) {
@@ -36,8 +36,8 @@ public class QueryViewModel {
                 QueryManager.makeRangeQuery("Score", score, null)
         };
         Query query = QueryManager.makeAndQuery(queries);
-        return new QueryViewModel(query,
-                String.format("Posts for question id [%s] with score more than %d", parentId, score));
+        String desc = String.format("posts for question id '%s' with score more than %d", parentId, score);
+        return new QueryViewModel(query, desc);
     }
 
     static QueryViewModel searchDateAndBody(String body, Date lowerDate, Date upperDate) {
@@ -47,7 +47,8 @@ public class QueryViewModel {
                 QueryManager.makeRangeQuery("CreationDate", lowerDate.getTime(), upperDate.getTime())
         };
         Query query = QueryManager.makeAndQuery(queries);
-        return new QueryViewModel(query,
-                String.format("Posts between %s and %s with [%s]", lowerDate.toString(), upperDate.toString(), body));
+        String desc = String.format("posts between %s and %s with '%s'",
+                lowerDate.toString(), upperDate.toString(), body);
+        return new QueryViewModel(query, desc);
     }
 }

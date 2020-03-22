@@ -26,7 +26,7 @@ public class Post {
         body = HtmlUtilities.convertToPlainText(record.get("Body"));
         user = new User(record);
         try {
-            creationDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(record.get("CreationDate"));
+            creationDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(record.get(4));
         } catch (ParseException e) {
             creationDate = null;
         }
