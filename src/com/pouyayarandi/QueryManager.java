@@ -26,14 +26,6 @@ public class QueryManager {
         return makeQueryWithOccur(field, queryStrings, BooleanClause.Occur.MUST);
     }
 
-    public static Query makeShouldQuery(String field, String[] queryStrings) {
-        return makeQueryWithOccur(field, queryStrings, BooleanClause.Occur.SHOULD);
-    }
-
-    public static Query termQuery(String field, String term) {
-        return new TermQuery(new Term(field, term));
-    }
-
     public static Query makeAndQuery(Query[] queries) {
         Query query = null;
         BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();
@@ -52,6 +44,10 @@ public class QueryManager {
         return LongPoint.newRangeQuery(field,
                 lowerValue == null ? Long.MIN_VALUE : lowerValue,
                 upperValue == null ? Long.MAX_VALUE : upperValue);
+    }
+
+    public static Query makeExactQuery(String field, int value) {
+        return IntPoint.newExactQuery(field, value);
     }
 
     public static Query makeExactQuery(String field, float value) {

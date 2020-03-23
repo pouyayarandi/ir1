@@ -22,8 +22,8 @@ public class QueryViewModel {
     }
 
     static QueryViewModel searchId(String id) {
-        String[] terms = {id};
-        return new QueryViewModel(QueryManager.makeShouldQuery("Id", terms), String.format("post with id %s", id));
+        return new QueryViewModel(QueryManager.makeExactQuery("Id", Integer.parseInt(id)),
+                String.format("post with id %s", id));
     }
 
     static QueryViewModel searchPostsWithNotRelatedTags() {
@@ -32,7 +32,7 @@ public class QueryViewModel {
 
     static QueryViewModel searchParentIdAndScore(String parentId, int score) {
         Query[] queries = {
-                QueryManager.termQuery("ParentId", parentId),
+                QueryManager.makeExactQuery("ParentId", Integer.parseInt(parentId)),
                 QueryManager.makeRangeQuery("Score", score, null)
         };
         Query query = QueryManager.makeAndQuery(queries);

@@ -50,7 +50,7 @@ public class Post {
 
     public MemoryIndex getMemoryIndex() {
         MemoryIndex memoryIndex = new MemoryIndex();
-        memoryIndex.addField(new StringField("Id", id, Field.Store.YES), analyzer);
+        memoryIndex.addField(new IntPoint("Id", Integer.parseInt(id)), analyzer);
         memoryIndex.addField(new TextField("Body", body, Field.Store.YES), analyzer);
         memoryIndex.addField(new TextField("DisplayName", user.getDisplayName(), Field.Store.YES), analyzer);
         memoryIndex.addField(new LongPoint("CreationDate", getCreationTimestamp()), analyzer);

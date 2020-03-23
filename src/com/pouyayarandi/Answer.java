@@ -1,9 +1,7 @@
 package com.pouyayarandi;
 
 import org.apache.commons.csv.CSVRecord;
-import org.apache.lucene.document.Field;
 import org.apache.lucene.document.IntPoint;
-import org.apache.lucene.document.StringField;
 import org.apache.lucene.index.memory.MemoryIndex;
 
 /**
@@ -32,7 +30,7 @@ public class Answer extends Post {
     public MemoryIndex getMemoryIndex() {
         MemoryIndex memoryIndex = super.getMemoryIndex();
         memoryIndex.addField(new IntPoint("Score", score), analyzer);
-        memoryIndex.addField(new StringField("ParentId", parentPostId, Field.Store.YES), analyzer);
+        memoryIndex.addField(new IntPoint("ParentId", Integer.parseInt(parentPostId)), analyzer);
         return memoryIndex;
     }
 
