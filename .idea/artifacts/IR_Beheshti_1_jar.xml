@@ -1,0 +1,33 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="IR-Beheshti-1:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IR_Beheshti_1_jar</output-path>
+    <root id="archive" name="IR-Beheshti-1.jar">
+      <element id="module-output" name="IR-Beheshti-1" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/parse_csv/commons-csv-1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/backward-codecs/lucene-backward-codecs-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/benchmark/lucene-benchmark-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/classification/lucene-classification-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/codecs/lucene-codecs-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/core/lucene-core-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/demo/lucene-demo-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/expressions/lucene-expressions-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/facet/lucene-facet-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/grouping/lucene-grouping-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/highlighter/lucene-highlighter-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/join/lucene-join-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/luke/lucene-luke-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/memory/lucene-memory-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/misc/lucene-misc-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/monitor/lucene-monitor-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/queries/lucene-queries-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/queryparser/lucene-queryparser-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/replicator/lucene-replicator-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/sandbox/lucene-sandbox-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/spatial/lucene-spatial-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/spatial-extras/lucene-spatial-extras-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/spatial3d/lucene-spatial3d-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/suggest/lucene-suggest-8.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/test-framework/lucene-test-framework-8.4.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
